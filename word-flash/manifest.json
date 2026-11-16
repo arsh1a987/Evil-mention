@@ -4,10 +4,12 @@
   "version": "1.0",
   "description": "Flashes an image on a YouTube video when a chosen word is said.",
   "icons": { "128": "icon128.png" },
+  "permissions": ["storage"],
+  "action": { "default_popup": "popup.html", "default_title": "Evil Mention" },
   "content_scripts": [
     { "matches": ["*://www.youtube.com/*"], "js": ["content.js"] }
   ],
   "web_accessible_resources": [
-    { "resources": ["1.png", "2.png", "3.png", "boom.wav"], "matches": ["*://www.youtube.com/*"] }
+    { "resources": ["1.png", "2.png", "3.png", "boom.wav", "boom-loud.wav"], "matches": ["*://www.youtube.com/*"] }
   ]
 }
