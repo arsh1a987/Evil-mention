@@ -21,7 +21,8 @@ function playSound() {
   sound.play().catch(() => {});
 }
 
-new MutationObserver(() => {
+new MutationObserver((_, observer) => {
+  if (!chrome.runtime?.id) return observer.disconnect();
   const player = document.querySelector('#movie_player');
   if (!player) return;
   const captions = [...player.querySelectorAll('.ytp-caption-segment')].map((s) => s.textContent).join(' ');
